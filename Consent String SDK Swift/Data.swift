@@ -44,10 +44,8 @@ extension Data {
             if startByte == endByte {
                 //avoid complexity by removing the case where startBit and endBit are on the same byte
                 let leftShift = startBit % 8
-                let rightShift =  leftShift + (8 - ((endBit + 1) % 8)) % 8
-                if startByte == endByte {
-                    byteArray.append((self[startByte] << leftShift) >> rightShift)
-                }
+                let rightShift =  8 - (realEndBit % 8) - 1
+                byteArray.append((self[startByte] << leftShift) >> (rightShift + leftShift))
             } else {
                 let rightShift = 8 - (realEndBit % 8) - 1
                 let leftShift = 8 - rightShift
@@ -68,7 +66,9 @@ extension Data {
                      byteArray.insert((self[currentByte] << finalLeftShift) >> finalRightShift , at: 0)
                 } else {
                     //means that there's some bits on the second byte and some from the first byte totaling less than a byte
-                    byteArray.insert((self[currentByte] >> rightShift) | ( (self[currentByte - 1] << finalLeftShift) >> finalLeftShift) , at: 0)
+                    let rightbites = (self[currentByte] >> rightShift)
+                    let leftbites = (self[currentByte - 1] << finalLeftShift) >> (rightShift - (8 - finalLeftShift))
+                    byteArray.insert(leftbites | rightbites , at: 0)
                 }
             }
         }
