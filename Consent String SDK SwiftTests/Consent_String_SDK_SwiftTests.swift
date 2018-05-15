@@ -300,6 +300,11 @@ class Consent_String_SDK_SwiftTests: XCTestCase {
         }
     }
     
+    func testConsentScreen () {
+        let consentString = try!ConsentString(consentString: "BN5lERiOMYEdiAOAWeFRAAYAAaAAptQ")
+        XCTAssert(consentString.consentScreen == 30)
+    }
+    
     func binaryStringRepresenting(data:Data) -> String {
         return  data.reduce("") { (acc, byte) -> String in
             let stringRep = String(byte, radix: 2)
