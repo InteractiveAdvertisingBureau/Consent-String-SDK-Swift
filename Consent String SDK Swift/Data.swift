@@ -66,9 +66,9 @@ extension Data {
                      byteArray.insert((self[currentByte] << finalLeftShift) >> finalRightShift , at: 0)
                 } else {
                     //means that there's some bits on the second byte and some from the first byte totaling less than a byte
-                    let rightbites = (self[currentByte] >> rightShift)
-                    let leftbites = (self[currentByte - 1] << finalLeftShift) >> (rightShift - (8 - finalLeftShift))
-                    byteArray.insert(leftbites | rightbites , at: 0)
+                    let rightBits = (self[currentByte] >> rightShift)
+                    let leftBits = (self[currentByte - 1] << finalLeftShift) >> (finalLeftShift - (8 - rightShift))
+                    byteArray.insert(leftBits | rightBits , at: 0)
                 }
             }
         }
