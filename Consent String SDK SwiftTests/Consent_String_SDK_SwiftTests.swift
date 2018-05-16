@@ -301,8 +301,30 @@ class Consent_String_SDK_SwiftTests: XCTestCase {
     }
     
     func testConsentScreen () {
-        let consentString = try!ConsentString(consentString: "BN5lERiOMYEdiAOAWeFRAAYAAaAAptQ")
-        XCTAssert(consentString.consentScreen == 30)
+        let consentStrings = [
+            "BN5lERiOMYEdiAOAWeFRAAYAAaAAptQ",
+            "BON0avfON0avfAAABAENAAAAAAAAoAA",
+            "BON0avfON0avfAAAB/ENAAAAAAAAoAA",
+            "BON0avfON0avfAAABfENAAAAAAAAoAA",
+            "BON0avfON0avfAAABPENAAAAAAAAoAA",
+            "BON0avfON0avfAAABHENAAAAAAAAoAA",
+            "BON0avfON0avfAAABDENAAAAAAAAoAA",
+            "BON0avfON0avfAAABBENAAAAAAAAoAA"
+        ]
+        let values = [
+            30,
+            0,
+            63,
+            31,
+            15,
+            7,
+            3,
+            1
+        ]
+        for (index,string) in consentStrings.enumerated() {
+            let consentString = try!ConsentString(consentString: string.base64Padded)
+            XCTAssert(consentString.consentScreen == values[index], "Actual screen: \(consentString.consentScreen)")
+        }
     }
     
     func binaryStringRepresenting(data:Data) -> String {
