@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9E07CAA2109AC2600A4DF28 /* CSPublisherConsentString+DecodeV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E07CA92109AC2600A4DF28 /* CSPublisherConsentString+DecodeV1.swift */; };
+		C9E07CB02109AE6B00A4DF28 /* VTYVendorConsentStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E07CAC2109AE6A00A4DF28 /* VTYVendorConsentStringTests.swift */; };
+		C9E07CB12109AE6B00A4DF28 /* VTYPublisherConsentStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E07CAD2109AE6B00A4DF28 /* VTYPublisherConsentStringTests.swift */; };
+		C9E07CB22109AE6B00A4DF28 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E07CAE2109AE6B00A4DF28 /* StringTests.swift */; };
+		C9F93E3D210856F300D60E96 /* CSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F93E3C210856F300D60E96 /* CSConstants.swift */; };
+		C9F93E422108574D00D60E96 /* CSVendorConsentString+Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F93E3F2108574C00D60E96 /* CSVendorConsentString+Encode.swift */; };
+		C9F93E432108574D00D60E96 /* CSVendorConsentString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F93E402108574C00D60E96 /* CSVendorConsentString.swift */; };
+		C9F93E442108574D00D60E96 /* CSVendorConsentString+DecodeV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F93E412108574C00D60E96 /* CSVendorConsentString+DecodeV1.swift */; };
+		C9F93E492108584100D60E96 /* CSPublisherConsentString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F93E462108584100D60E96 /* CSPublisherConsentString.swift */; };
+		C9F93E4A2108584100D60E96 /* CSPublisherConsentString+Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F93E472108584100D60E96 /* CSPublisherConsentString+Encode.swift */; };
+		C9F93E4B2108584100D60E96 /* CSPublisherConsentString+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F93E482108584100D60E96 /* CSPublisherConsentString+Decode.swift */; };
+		C9F93E4D21085D7800D60E96 /* CSVendorConsentString+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F93E4C21085D7800D60E96 /* CSVendorConsentString+Decode.swift */; };
+		C9F93E4F21085DFC00D60E96 /* CSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F93E4E21085DFC00D60E96 /* CSError.swift */; };
 		F142B52A2093A1C5001ABE60 /* Consent_String_SDK_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F142B5202093A1C5001ABE60 /* Consent_String_SDK_Swift.framework */; };
-		F142B52F2093A1C5001ABE60 /* Consent_String_SDK_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142B52E2093A1C5001ABE60 /* Consent_String_SDK_SwiftTests.swift */; };
 		F142B5312093A1C5001ABE60 /* Consent_String_SDK_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = F142B5232093A1C5001ABE60 /* Consent_String_SDK_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F142B53F2093A207001ABE60 /* ConsentString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142B53A2093A206001ABE60 /* ConsentString.swift */; };
-		F142B5402093A207001ABE60 /* ConsentString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142B53A2093A206001ABE60 /* ConsentString.swift */; };
-		F142B5412093A207001ABE60 /* ConsentStringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142B53B2093A206001ABE60 /* ConsentStringError.swift */; };
-		F142B5422093A207001ABE60 /* ConsentStringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142B53B2093A206001ABE60 /* ConsentStringError.swift */; };
-		F142B5432093A207001ABE60 /* ConsentStringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142B53C2093A206001ABE60 /* ConsentStringProtocol.swift */; };
-		F142B5442093A207001ABE60 /* ConsentStringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142B53C2093A206001ABE60 /* ConsentStringProtocol.swift */; };
 		F142B5452093A207001ABE60 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142B53D2093A207001ABE60 /* String.swift */; };
 		F142B5462093A207001ABE60 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142B53D2093A207001ABE60 /* String.swift */; };
 		F142B5472093A207001ABE60 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142B53E2093A207001ABE60 /* Data.swift */; };
@@ -33,15 +39,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C9E07CA92109AC2600A4DF28 /* CSPublisherConsentString+DecodeV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CSPublisherConsentString+DecodeV1.swift"; sourceTree = "<group>"; };
+		C9E07CAC2109AE6A00A4DF28 /* VTYVendorConsentStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VTYVendorConsentStringTests.swift; sourceTree = "<group>"; };
+		C9E07CAD2109AE6B00A4DF28 /* VTYPublisherConsentStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VTYPublisherConsentStringTests.swift; sourceTree = "<group>"; };
+		C9E07CAE2109AE6B00A4DF28 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		C9F93E3C210856F300D60E96 /* CSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSConstants.swift; sourceTree = "<group>"; };
+		C9F93E3F2108574C00D60E96 /* CSVendorConsentString+Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSVendorConsentString+Encode.swift"; sourceTree = "<group>"; };
+		C9F93E402108574C00D60E96 /* CSVendorConsentString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVendorConsentString.swift; sourceTree = "<group>"; };
+		C9F93E412108574C00D60E96 /* CSVendorConsentString+DecodeV1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSVendorConsentString+DecodeV1.swift"; sourceTree = "<group>"; };
+		C9F93E462108584100D60E96 /* CSPublisherConsentString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSPublisherConsentString.swift; sourceTree = "<group>"; };
+		C9F93E472108584100D60E96 /* CSPublisherConsentString+Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSPublisherConsentString+Encode.swift"; sourceTree = "<group>"; };
+		C9F93E482108584100D60E96 /* CSPublisherConsentString+Decode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSPublisherConsentString+Decode.swift"; sourceTree = "<group>"; };
+		C9F93E4C21085D7800D60E96 /* CSVendorConsentString+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CSVendorConsentString+Decode.swift"; sourceTree = "<group>"; };
+		C9F93E4E21085DFC00D60E96 /* CSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSError.swift; sourceTree = "<group>"; };
 		F142B5202093A1C5001ABE60 /* Consent_String_SDK_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Consent_String_SDK_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F142B5232093A1C5001ABE60 /* Consent_String_SDK_Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Consent_String_SDK_Swift.h; sourceTree = "<group>"; };
 		F142B5242093A1C5001ABE60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F142B5292093A1C5001ABE60 /* Consent String SDK SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Consent String SDK SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F142B52E2093A1C5001ABE60 /* Consent_String_SDK_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consent_String_SDK_SwiftTests.swift; sourceTree = "<group>"; };
 		F142B5302093A1C5001ABE60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F142B53A2093A206001ABE60 /* ConsentString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentString.swift; sourceTree = "<group>"; };
-		F142B53B2093A206001ABE60 /* ConsentStringError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentStringError.swift; sourceTree = "<group>"; };
-		F142B53C2093A206001ABE60 /* ConsentStringProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentStringProtocol.swift; sourceTree = "<group>"; };
 		F142B53D2093A207001ABE60 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F142B53E2093A207001ABE60 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +80,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9F93E3E2108573A00D60E96 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C9F93E402108574C00D60E96 /* CSVendorConsentString.swift */,
+				C9F93E4C21085D7800D60E96 /* CSVendorConsentString+Decode.swift */,
+				C9F93E412108574C00D60E96 /* CSVendorConsentString+DecodeV1.swift */,
+				C9F93E3F2108574C00D60E96 /* CSVendorConsentString+Encode.swift */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		C9F93E45210857F700D60E96 /* Publisher */ = {
+			isa = PBXGroup;
+			children = (
+				C9F93E462108584100D60E96 /* CSPublisherConsentString.swift */,
+				C9F93E482108584100D60E96 /* CSPublisherConsentString+Decode.swift */,
+				C9E07CA92109AC2600A4DF28 /* CSPublisherConsentString+DecodeV1.swift */,
+				C9F93E472108584100D60E96 /* CSPublisherConsentString+Encode.swift */,
+			);
+			path = Publisher;
+			sourceTree = "<group>";
+		};
 		F142B5162093A1C5001ABE60 = {
 			isa = PBXGroup;
 			children = (
@@ -86,9 +123,10 @@
 		F142B5222093A1C5001ABE60 /* Consent String SDK Swift */ = {
 			isa = PBXGroup;
 			children = (
-				F142B53C2093A206001ABE60 /* ConsentStringProtocol.swift */,
-				F142B53A2093A206001ABE60 /* ConsentString.swift */,
-				F142B53B2093A206001ABE60 /* ConsentStringError.swift */,
+				C9F93E3C210856F300D60E96 /* CSConstants.swift */,
+				C9F93E3E2108573A00D60E96 /* Vendor */,
+				C9F93E45210857F700D60E96 /* Publisher */,
+				C9F93E4E21085DFC00D60E96 /* CSError.swift */,
 				F142B53E2093A207001ABE60 /* Data.swift */,
 				F142B53D2093A207001ABE60 /* String.swift */,
 				F142B5232093A1C5001ABE60 /* Consent_String_SDK_Swift.h */,
@@ -100,7 +138,9 @@
 		F142B52D2093A1C5001ABE60 /* Consent String SDK SwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				F142B52E2093A1C5001ABE60 /* Consent_String_SDK_SwiftTests.swift */,
+				C9E07CAE2109AE6B00A4DF28 /* StringTests.swift */,
+				C9E07CAD2109AE6B00A4DF28 /* VTYPublisherConsentStringTests.swift */,
+				C9E07CAC2109AE6A00A4DF28 /* VTYVendorConsentStringTests.swift */,
 				F142B5302093A1C5001ABE60 /* Info.plist */,
 			);
 			path = "Consent String SDK SwiftTests";
@@ -215,11 +255,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F142B5432093A207001ABE60 /* ConsentStringProtocol.swift in Sources */,
+				C9F93E492108584100D60E96 /* CSPublisherConsentString.swift in Sources */,
+				C9F93E4A2108584100D60E96 /* CSPublisherConsentString+Encode.swift in Sources */,
+				C9F93E4B2108584100D60E96 /* CSPublisherConsentString+Decode.swift in Sources */,
+				C9F93E4D21085D7800D60E96 /* CSVendorConsentString+Decode.swift in Sources */,
+				C9F93E432108574D00D60E96 /* CSVendorConsentString.swift in Sources */,
 				F142B5472093A207001ABE60 /* Data.swift in Sources */,
-				F142B5412093A207001ABE60 /* ConsentStringError.swift in Sources */,
 				F142B5452093A207001ABE60 /* String.swift in Sources */,
-				F142B53F2093A207001ABE60 /* ConsentString.swift in Sources */,
+				C9F93E4F21085DFC00D60E96 /* CSError.swift in Sources */,
+				C9F93E442108574D00D60E96 /* CSVendorConsentString+DecodeV1.swift in Sources */,
+				C9E07CAA2109AC2600A4DF28 /* CSPublisherConsentString+DecodeV1.swift in Sources */,
+				C9F93E422108574D00D60E96 /* CSVendorConsentString+Encode.swift in Sources */,
+				C9F93E3D210856F300D60E96 /* CSConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,12 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F142B52F2093A1C5001ABE60 /* Consent_String_SDK_SwiftTests.swift in Sources */,
+				C9E07CB02109AE6B00A4DF28 /* VTYVendorConsentStringTests.swift in Sources */,
+				C9E07CB12109AE6B00A4DF28 /* VTYPublisherConsentStringTests.swift in Sources */,
+				C9E07CB22109AE6B00A4DF28 /* StringTests.swift in Sources */,
 				F142B5482093A207001ABE60 /* Data.swift in Sources */,
-				F142B5442093A207001ABE60 /* ConsentStringProtocol.swift in Sources */,
 				F142B5462093A207001ABE60 /* String.swift in Sources */,
-				F142B5422093A207001ABE60 /* ConsentStringError.swift in Sources */,
-				F142B5402093A207001ABE60 /* ConsentString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
