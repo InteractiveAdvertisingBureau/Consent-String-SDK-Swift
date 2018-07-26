@@ -8,6 +8,12 @@
 
 import Foundation
 
-public enum ConsentStringError :  Error {
+public enum CSError :  Error {
+    case notSupportedVersion
+    case tooLittleString
+    case emptyString
+    case dataNotValid
+    case decodingFailed
     case base64DecodingFailed
+    case unknown
 }
