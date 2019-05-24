@@ -117,6 +117,26 @@ extension Data {
         let value = UInt64(bigEndian: dataValue.withUnsafeBytes { $0.pointee })
         return Int64(value)
     }
+
+    /// Return data for a range from the lower bound up to, but not including,
+    /// the upper bound. E.g. a range of location 0 and length 5 will return
+    /// bits 0,1,2,3, and 4.
+    ///
+    /// - Parameter range: Range of bits to read
+    /// - Returns: Data representing the range of bits
+    func data(for range: NSRange) -> Data {
+        return data(fromBit: Int64(range.lowerBound), toBit: Int64(range.upperBound - 1))
+    }
+
+    /// Return an integer represented by a range of bits from the lower bound
+    /// up to, but not including, the upper bound. E.g. a range of location 0
+    /// and length 5 will return bits 0,1,2,3, and 4.
+    ///
+    /// - Parameter range: Range of bits to read
+    /// - Returns: Integer representing the range of bits
+    func intValue(for range: NSRange) -> Int64 {
+        return intValue(fromBit: Int64(range.lowerBound), toBit: Int64(range.upperBound - 1))
+    }
   
 }
 

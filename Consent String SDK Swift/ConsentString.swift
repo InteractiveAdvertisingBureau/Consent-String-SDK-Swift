@@ -8,8 +8,12 @@
 
 import Foundation
 
-class ConsentString:ConsentStringProtocol {
-    
+public class ConsentString: ConsentStringProtocol {
+
+    static let bitFieldVendorStart: Int = 173
+    static let rangeEntryOffset: Int = 186
+    static let vendorIdentifierSize: Int = 16
+
     /**
      The current Consent String.  Setting will allow replacement of the curr
  */
@@ -41,30 +45,26 @@ class ConsentString:ConsentStringProtocol {
         }
         consentData = dataValue
     }
-    
-    
+
     public var cmpId: Int {
-        return Int(consentData.intValue(fromBit: 78, toBit: 89))
+        return Int(consentData.intValue(for: .cmpIdentifier))
     }
-    
+
     public var consentScreen: Int {
-        return Int(consentData.intValue(fromBit: 102, toBit: 107))
+        return Int(consentData.intValue(for: .consentScreen))
     }
     
     public var consentLanguage: String {
-        var data = consentData.data(fromBit: 108, toBit: 119)
+        var data = consentData.data(for: .consentLanguage)
         data.insert(0, at: 0)
         let string = data.base64EncodedString()
         return String(string[string.index(string.startIndex, offsetBy: 2)...])
     }
     
-    let purposesStart:Int64 = 132
-    let maxPurposes:Int64 = 24
-    
     public var purposesAllowed: [Int8] {
         var resultsArray = [Int8]()
-        for purposeId in 1...maxPurposes {
-            let purposeBit = purposesStart - 1 + Int64(purposeId)
+        for purposeId in 1...NSRange.purposes.length {
+            let purposeBit = Int64(NSRange.purposes.lowerBound - 1 + purposeId)
             let value = Int(consentData.intValue(fromBit: purposeBit, toBit: purposeBit))
             if value > 0 {
                 resultsArray.append(Int8(purposeId))
@@ -73,29 +73,32 @@ class ConsentString:ConsentStringProtocol {
         return resultsArray
     }
     
-    
     public func purposeAllowed(forPurposeId purposeId: Int8) -> Bool {
-        if purposeId > 24 || purposeId < 1 {
+        if purposeId > NSRange.purposes.length || purposeId < 1 {
             return false
         }
-        let purposeBit = purposesStart - 1 + Int64(purposeId)
+        let purposeBit = Int64(NSRange.purposes.lowerBound) - 1 + Int64(purposeId)
         let value = Int(consentData.intValue(fromBit: purposeBit, toBit: purposeBit))
         if value > 0 {
             return true
         }
         return false
     }
+
+    public var vendorListVersion: Int {
+        return Int(consentData.intValue(for: .vendorListVersion))
+    }
     
     //Used to determine whether we need to check for a vendor ID at all if it's greater than this value
-    private var maxVendorId : Int {
+    public var maxVendorId : Int {
         get {
-            return Int(consentData.intValue(fromBit: 156, toBit: 171))
+            return Int(consentData.intValue(for: .maxVendorIdentifier))
         }
     }
     
     private var isBitField:Bool {
         get {
-            let value = consentData.intValue(fromBit: 172, toBit: 172)
+            let value = consentData.intValue(for: .encodingType)
             return value == 0
         }
     }
@@ -105,16 +108,14 @@ class ConsentString:ConsentStringProtocol {
             return !isBitField
         }
     }
-    
-    private let bitFieldVendorStart:Int64 = 173
-    private let rangeDefaultConsent:Int64 = 173
-    
+
+
     public func isVendorAllowed(vendorId: Int) -> Bool {
         if vendorId > maxVendorId {
             return false
         }
         if isBitField {
-            let vendorBitField = bitFieldVendorStart + Int64(vendorId) - 1
+            let vendorBitField = Int64(ConsentString.bitFieldVendorStart + vendorId - 1)
             //not enough bits
             guard vendorBitField < consentData.count * 8 else {
                 return false
@@ -127,24 +128,25 @@ class ConsentString:ConsentStringProtocol {
             }
         } else {
             let consentDataMaxBit = consentData.count * 8 - 1 //1 byte, last bit is 7, for 2 bytes, last is 15 etc...
-            let defaultConsent = consentData.intValue(fromBit: rangeDefaultConsent, toBit: rangeDefaultConsent)
-            let numEntries = Int(consentData.intValue(fromBit: 174, toBit: 185))
-            var rangeStart = Int64(186)
+            let defaultConsent = consentData.intValue(for: .defaultConsent)
+            let numEntries = Int(consentData.intValue(for: .numberOfEntries))
+            let vendorIdentifierSize = Int64(ConsentString.vendorIdentifierSize)
+            var rangeStart = Int64(ConsentString.rangeEntryOffset)
             for _ in 0..<numEntries {
                 let entryType = consentData.intValue(fromBit: rangeStart, toBit: rangeStart)
-                if consentDataMaxBit < rangeStart + 16 + 1  + (entryType * 16) {//typebit + either 16 or 32
+                if consentDataMaxBit < rangeStart + vendorIdentifierSize + 1  + (entryType * vendorIdentifierSize) {//typebit + either 16 or 32
                     break
                 }
                 if entryType == 0 {//single
-                    let thisVendorId = consentData.intValue(fromBit: rangeStart + 1, toBit: rangeStart + 16)
+                    let thisVendorId = consentData.intValue(fromBit: rangeStart + 1, toBit: rangeStart + vendorIdentifierSize)
                     if vendorId == thisVendorId {
                         //if vendorId matches this one, then return opposite of default consent
                         return defaultConsent == 1 ? false : true
                     }
                     rangeStart += 17
                 } else if entryType == 1 {//range
-                    let vendorStart = consentData.intValue(fromBit: rangeStart + 1, toBit: rangeStart + 16)
-                    let vendorFinish = consentData.intValue(fromBit: rangeStart + 18, toBit: rangeStart + 32)
+                    let vendorStart = consentData.intValue(fromBit: rangeStart + 1, toBit: rangeStart + vendorIdentifierSize)
+                    let vendorFinish = consentData.intValue(fromBit: rangeStart + vendorIdentifierSize + 2, toBit: rangeStart + vendorIdentifierSize * 2)
                     if vendorStart <= vendorId && vendorId <= vendorFinish {
                         //if vendorId falls within range, then return opposite of default consent
                         return defaultConsent == 1 ? false : true
