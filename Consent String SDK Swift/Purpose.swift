@@ -16,8 +16,7 @@ public struct Purposes: OptionSet {
     public static let adSelection = Purposes(rawValue: 1 << 21)
     public static let contentDelivery = Purposes(rawValue: 1 << 20)
     public static let measurement = Purposes(rawValue: 1 << 19)
-
-    static let all: Purposes = [.storageAndAccess, .personalization, .adSelection, .contentDelivery, .measurement]
+    public static let all: Purposes = [.storageAndAccess, .personalization, .adSelection, .contentDelivery, .measurement]
 
     public let rawValue: Int
 
