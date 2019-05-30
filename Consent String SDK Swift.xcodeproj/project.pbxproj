@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B3E03CE22A0206C0078D316 /* ConsentStringBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3E03CD22A0206C0078D316 /* ConsentStringBuilding.swift */; };
 		0B8FBC7222954495002F733D /* NSRange+ConsentString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8FBC7122954495002F733D /* NSRange+ConsentString.swift */; };
 		0B8FBC76229558F3002F733D /* VendorIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8FBC75229558F3002F733D /* VendorIdentifier.swift */; };
 		0BA327D3228EA54A00606697 /* ConsentStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA327D2228EA54A00606697 /* ConsentStringBuilder.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B3E03CD22A0206C0078D316 /* ConsentStringBuilding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentStringBuilding.swift; sourceTree = "<group>"; };
 		0B8FBC7122954495002F733D /* NSRange+ConsentString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRange+ConsentString.swift"; sourceTree = "<group>"; };
 		0B8FBC75229558F3002F733D /* VendorIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorIdentifier.swift; sourceTree = "<group>"; };
 		0BA327D2228EA54A00606697 /* ConsentStringBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentStringBuilder.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				F142B5232093A1C5001ABE60 /* Consent_String_SDK_Swift.h */,
 				F142B5242093A1C5001ABE60 /* Info.plist */,
 				0BA327D2228EA54A00606697 /* ConsentStringBuilder.swift */,
+				0B3E03CD22A0206C0078D316 /* ConsentStringBuilding.swift */,
 				0BA327D4228EC1A300606697 /* Purpose.swift */,
 				0B8FBC75229558F3002F733D /* VendorIdentifier.swift */,
 				0B8FBC7122954495002F733D /* NSRange+ConsentString.swift */,
@@ -241,6 +244,7 @@
 				F142B5412093A207001ABE60 /* ConsentStringError.swift in Sources */,
 				F142B5452093A207001ABE60 /* String.swift in Sources */,
 				F142B53F2093A207001ABE60 /* ConsentString.swift in Sources */,
+				0B3E03CE22A0206C0078D316 /* ConsentStringBuilding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

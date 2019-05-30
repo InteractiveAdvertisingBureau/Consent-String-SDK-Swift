@@ -74,14 +74,14 @@ class ConsentStringBuilderTests: XCTestCase, BinaryStringTestSupport {
     }
 
     func testFailsWithInvalidLanguageCode() {
-        XCTAssertThrowsError(try builder.build(cmpId: 0, cmpVersion: 0, consentScreenId: 0, consentLanguage: "z", allowedPurposes: [], vendorListVersion: 0, maxVendorId: 1, allowedVendorIds: [1])) { error in
+        XCTAssertThrowsError(try builder.build(cmpId: 0, cmpVersion: 0, consentScreenId: 0, consentLanguage: "z", allowedPurposes: [], vendorListVersion: 0, maxVendorId: 1, defaultConsent: false, allowedVendorIds: [1])) { error in
             guard case ConsentStringBuilder.Error.invalidLanguageCode("z") = error else {
                 XCTFail("unexpected error: \(error)")
                 return
             }
         }
 
-        XCTAssertThrowsError(try builder.build(cmpId: 0, cmpVersion: 0, consentScreenId: 0, consentLanguage: "45", allowedPurposes: [], vendorListVersion: 0, maxVendorId: 1, allowedVendorIds: [1])) { error in
+        XCTAssertThrowsError(try builder.build(cmpId: 0, cmpVersion: 0, consentScreenId: 0, consentLanguage: "45", allowedPurposes: [], vendorListVersion: 0, maxVendorId: 1, defaultConsent: false, allowedVendorIds: [1])) { error in
             guard case ConsentStringBuilder.Error.invalidLanguageCode("45") = error else {
                 XCTFail("unexpected error: \(error)")
                 return

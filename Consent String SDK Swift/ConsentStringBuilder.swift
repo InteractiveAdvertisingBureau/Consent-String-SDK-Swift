@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class ConsentStringBuilder {
+public class ConsentStringBuilder: ConsentStringBuilding {
 
     enum Error: Swift.Error {
         case invalidLanguageCode(String)
@@ -35,7 +35,7 @@ public class ConsentStringBuilder {
     ///   - allowedVendorIds: VendorIds with consent
     /// - Returns: An encoded consent string
     /// - Throws: Error is string cannot be created
-    public func build(created: Date = Date(), updated: Date = Date(), cmpId: Int, cmpVersion: Int, consentScreenId: Int, consentLanguage: String, allowedPurposes: Purposes, vendorListVersion: Int, maxVendorId: VendorIdentifier, defaultConsent: Bool = false, allowedVendorIds: Set<VendorIdentifier>) throws -> String {
+    public func build(created: Date, updated: Date, cmpId: Int, cmpVersion: Int, consentScreenId: Int, consentLanguage: String, allowedPurposes: Purposes, vendorListVersion: Int, maxVendorId: VendorIdentifier, defaultConsent: Bool, allowedVendorIds: Set<VendorIdentifier>) throws -> String {
         let commonBinaryString = try commonConsentBinaryString(created: created, updated: updated, cmpId: cmpId, cmpVersion: cmpVersion, consentScreenId: consentScreenId, consentLanguage: consentLanguage, allowedPurposes: allowedPurposes, vendorListVersion: vendorListVersion, maxVendorId: maxVendorId)
 
         // we encode by both methods (bit field and ranges) and use whichever is smallest
@@ -109,11 +109,11 @@ public class ConsentStringBuilder {
         return encode(integer: Int(date.timeIntervalSince1970 * 10), toLength: length)
     }
 
-    func encode(purposeBitFieldForPurposes purposes: Purposes) -> String {
+    public func encode(purposeBitFieldForPurposes purposes: Purposes) -> String {
         return encode(integer: purposes.rawValue, toLength: NSRange.purposes.length)
     }
 
-    func encode(vendorBitFieldForVendors vendors: Set<VendorIdentifier>, maxVendorId: VendorIdentifier) -> String {
+    public func encode(vendorBitFieldForVendors vendors: Set<VendorIdentifier>, maxVendorId: VendorIdentifier) -> String {
         return (1...maxVendorId).reduce("") { $0 + (vendors.contains($1) ? "1" : "0") }
     }
 
